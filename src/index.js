@@ -59,11 +59,15 @@ function displayForecast() {
   let forecastHTML = "";
 
   days.forEach(function (day) {
-    forecastElement.innerHTML = `<div><div class="forecast-day">${day}</div>
+    forecastHTML =
+      forecastHTML +
+      `<div><div class="forecast-day">${day}</div>
 <div class="forecast-icon">
 <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"  width="30"/></div>
 <div><span class="min-temperature">9</span>°<span class="max-temperature"><span><strong>37<strong>°</span></div></div>`;
   });
+
+  forecastElement.innerHTML = forecastHTML;
 }
 
 searchCity("Cape Town");
