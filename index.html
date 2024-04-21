@@ -6,30 +6,49 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 id="city">Cape Town</h1>
-    <form submit="search" id="search-form">
-      <input
-        type="search"
-        placeholder="Enter your city"
-        required
-        id="search-form-input"
-      />
-      <input type="submit" value="search" id="search-form-button" />
-    </form>
-    <footer>
-      Coded by
-      <a href="https://github.com/cosm1cgirl" target="_blank"
-        >Mary-Anne Schaffers</a
-      >, hosted on
-      <a
-        href="https://github.com/cosm1cgirl/Weather-Forecast-App"
-        target="_blank"
-        >GitHub</a
-      >
-      and website hosted on
-      <a href="hthttps://oracleweatherforecast.netlify.app/" target="_blank"
-        >Netlify.</a
-      >
-    </footer>
+    <main class="weather-app">
+      <h1 id="city">Cape Town</h1>
+      <div class="weather-details">
+        <p>Current Weather</p>
+        <p id="day-time">Friday 12:17</p>
+      </div>
+      <div class="weather-conditions">
+        <span id="icon">☀</span>
+        <span class="temperature" id="temperature">18°c</span>
+        <div class="current-conditions">
+          <p id="condition">sunny</p>
+          <p class="wind">
+            Wind:<span class="wind-speed" id="wind-speed">35km/h</span>
+          </p>
+          <p class="humidity">
+            Humidity:<span id="current-humidity">16 %</span>
+          </p>
+        </div>
+      </div>
+      <form submit="search" id="search-form">
+        <input
+          type="search"
+          placeholder="Enter your city"
+          required
+          id="search-form-input"
+        />
+        <input type="submit" value="search" id="search-form-button" />
+      </form>
+      <footer>
+        Coded by
+        <a href="https://github.com/cosm1cgirl" target="_blank"
+          >Mary-Anne Schaffers</a
+        >, hosted on
+        <a
+          href="https://github.com/cosm1cgirl/Weather-Forecast-App"
+          target="_blank"
+          >GitHub</a
+        >
+        and website hosted on
+        <a href="hthttps://oracleweatherforecast.netlify.app/" target="_blank"
+          >Netlify.</a
+        >
+      </footer>
+    </main>
   </body>
 </html>
