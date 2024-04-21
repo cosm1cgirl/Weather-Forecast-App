@@ -53,28 +53,34 @@ function updateCity(event) {
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", updateCity);
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
+
 function getForecast(city) {
   let apiKey = "efc7a995b0ta50f31c388oe39854d44b";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHTML = "";
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div><div class="forecast-day">${day}</div>
+  response.data.daily.forEach(function (day, index) {
+    if (index < 7) {
+      forecastHTML =
+        forecastHTML +
+        `<div><div class="forecast-day">${formatDay(day.time)}</div>
 <div class="forecast-icon">
 <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"  width="30"/></div>
 <div><span class="min-temperature">9</span>°<span class="max-temperature"><span><strong>37<strong>°</span></div></div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;
 }
 
 searchCity("Cape Town");
-displayForecast();
