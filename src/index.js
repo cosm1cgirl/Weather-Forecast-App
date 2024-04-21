@@ -1,7 +1,10 @@
 function updateTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let temperature = response.data.temperature.current;
+  let conditionElement = document.querySelector("#condition");
+
   temperatureElement.innerHTML = Math.round(temperature) + "°c";
+  conditionElement.innerHTML = response.data.condition.description;
 }
 
 function searchCity(city) {
