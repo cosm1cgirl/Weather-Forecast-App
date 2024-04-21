@@ -2,9 +2,11 @@ function updateTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let temperature = response.data.temperature.current;
   let conditionElement = document.querySelector("#condition");
+  let windSpeedElement = document.querySelector("#wind-speed");
 
   temperatureElement.innerHTML = Math.round(temperature) + "°c";
   conditionElement.innerHTML = response.data.condition.description;
+  windSpeedElement.innerHTML = Math.round(response.data.wind.speed) + "km/h";
 }
 
 function searchCity(city) {
