@@ -70,12 +70,12 @@ function displayForecast(response) {
   let forecastHTML = "";
 
   response.data.daily.forEach(function (day, index) {
-    if (index < 7) {
+    if (index < 5) {
       forecastHTML =
         forecastHTML +
         `<div><div class="forecast-day">${formatDay(day.time)}</div>
 <div class="forecast-icon">
-<img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"  width="30"/></div>
+<img src="${day.condition.icon_url}"  width="30"/></div>
 <div><span class="min-temperature">9</span>°<span class="max-temperature"><span><strong>37<strong>°</span></div></div>`;
     }
   });
