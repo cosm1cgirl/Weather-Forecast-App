@@ -58,7 +58,7 @@ function getForecast(city) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHTML = "";
@@ -76,4 +76,3 @@ function displayForecast() {
 }
 
 searchCity("Cape Town");
-displayForecast();
