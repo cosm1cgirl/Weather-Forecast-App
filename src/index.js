@@ -14,6 +14,7 @@ function updateTemperature(response) {
   humidityElement.innerHTML = response.data.temperature.humidity + "%";
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-conditions-icon"/>`;
   timeElement.innerHTML = formatDate(date);
+  getForecast(response.data.city);
 
   function formatDate(date) {
     let minutes = date.getMinutes();
@@ -58,7 +59,7 @@ function getForecast(city) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayForecast(response) {
+function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHTML = "";
@@ -76,3 +77,4 @@ function displayForecast(response) {
 }
 
 searchCity("Cape Town");
+displayForecast();
