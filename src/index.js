@@ -53,3 +53,9 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", updateCity);
 
 searchCity("Cape Town");
+
+let forecastElement = document.querySelector("#forecast");
+forecastElement.innerHTML = `<div><div class="forecast-day">Wed</div>
+          <div class="forecast-icon">
+          <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"  width="30"/></div>
+          <div><span class="min-temperature">9</span>°<span class="max-temperature"><span><strong>37<strong>°</span></div></div>`;
