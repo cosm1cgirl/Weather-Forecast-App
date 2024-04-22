@@ -8,11 +8,11 @@ function updateTemperature(response) {
   let date = new Date(response.data.time * 1000);
   let timeElement = document.getElementById("day-time");
 
-  temperatureElement.innerHTML = Math.round(temperature) + "°c";
+  temperatureElement.innerHTML = Math.round(temperature) + "°";
   conditionElement.innerHTML = response.data.condition.description;
   windSpeedElement.innerHTML = Math.round(response.data.wind.speed) + "km/h";
   humidityElement.innerHTML = response.data.temperature.humidity + "%";
-  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-conditions-icon"/>`;
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class ="weather-conditions-icon"/>`;
   timeElement.innerHTML = formatDate(date);
   getForecast(response.data.city);
 
@@ -36,7 +36,6 @@ function updateTemperature(response) {
     return `${day} ${hours}:${minutes}`;
   }
 }
-
 function searchCity(city) {
   let apiKey = "efc7a995b0ta50f31c388oe39854d44b";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -50,15 +49,11 @@ function updateCity(event) {
   cityElement.innerHTML = searchInput.value;
   searchCity(searchInput.value);
 }
-let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", updateCity);
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[date.getDay()];
 }
-
 function getForecast(city) {
   let apiKey = "efc7a995b0ta50f31c388oe39854d44b";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
@@ -66,7 +61,8 @@ function getForecast(city) {
 }
 
 function displayForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
+  console.log(response);
+
   let forecastHTML = "";
 
   response.data.daily.forEach(function (day, index) {
@@ -76,11 +72,18 @@ function displayForecast(response) {
         `<div><div class="forecast-day">${formatDay(day.time)}</div>
 <div class="forecast-icon">
 <img src="${day.condition.icon_url}"  width="30"/></div>
-<div><span class="min-temperature">9</span>°<span class="max-temperature"><span><strong>37<strong>°</span></div></div>`;
+<div><span class="min-temperature">${Math.round(
+          day.temperature.minimum
+        )}</span>°<span class="max-temperature"><span><strong>${Math.round(
+          day.temperature.maximum
+        )}<strong>°</span></div></div>`;
     }
   });
-
+  let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHTML;
 }
+
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", updateCity);
 
 searchCity("Cape Town");
