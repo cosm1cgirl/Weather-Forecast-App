@@ -15,7 +15,6 @@
         <p>Current Weather</p>
         <p id="day-time">Friday 12:17</p>
       </div>
-
       <div class="weather-conditions">
         <span id="icon"
           ><img
@@ -24,10 +23,11 @@
             height="200px"
             class="weather-conditions-icon"
         /></span>
-        <span class="temperature" id="temperature">18°</span
-        ><span class="temperature-unit">C</span>
-      </div>
-      <div>
+        <div>
+          <span class="temperature" id="temperature">18°</span
+          ><span class="temperature-unit">C</span>
+        </div>
+
         <div class="current-conditions">
           <p id="condition">sunny</p>
           <p class="wind">
@@ -37,9 +37,9 @@
             Humidity:<span id="current-humidity">16 %</span>
           </p>
         </div>
-
-        <div container class="forecast" id="forecast"></div>
       </div>
+      <div container class="forecast" id="forecast"></div>
+
       <form submit="search" id="search-form">
         <input
           type="search"
