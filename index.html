@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/styles.css" />
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
-    <title>Document</title>
+    <title>OracleWeather App</title>
   </head>
   <body>
-    <main class="weather-app">
+    <main class="weather-app-container">
       <h1 id="city">Cape Town</h1>
 
       <div class="weather-details">
         <p>Current Weather</p>
         <p id="day-time">Friday 12:17</p>
       </div>
-      <div class="weather-conditions">
-        <span id="icon"
-          ><img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
-            width="200px"
-            height="200px"
-            class="weather-conditions-icon"
-        /></span>
-        <div>
-          <span class="temperature" id="temperature">18</span
-          ><span class="temperature-unit">C</span>
-        </div>
 
-        <div class="current-conditions">
+      <ul class="weather-conditions">
+        <li id="icon">
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            class="weather-conditions-icon"
+          />
+        </li>
+
+        <li>
+          <span class="temperature" id="temperature">18°c</span>
+        </li>
+
+        <li class="current-conditions">
           <p id="condition">sunny</p>
           <p class="wind">
             Wind:<span class="wind-speed" id="wind-speed">35km/h</span>
@@ -36,8 +36,9 @@
           <p class="humidity">
             Humidity:<span id="current-humidity">16 %</span>
           </p>
-        </div>
-      </div>
+        </li>
+      </ul>
+
       <div container class="forecast" id="forecast"></div>
 
       <form submit="search" id="search-form">
@@ -49,6 +50,7 @@
         />
         <input type="submit" value="search" id="search-form-button" />
       </form>
+
       <footer>
         Coded by
         <a href="https://github.com/cosm1cgirl" target="_blank"
@@ -65,6 +67,7 @@
         >
       </footer>
     </main>
+
     <script src="src/index.js"></script>
   </body>
 </html>

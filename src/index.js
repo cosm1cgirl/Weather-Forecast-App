@@ -8,11 +8,11 @@ function updateTemperature(response) {
   let date = new Date(response.data.time * 1000);
   let timeElement = document.getElementById("day-time");
 
-  temperatureElement.innerHTML = Math.round(temperature) + "°";
+  temperatureElement.innerHTML = Math.round(temperature) + "°c";
   conditionElement.innerHTML = response.data.condition.description;
   windSpeedElement.innerHTML = Math.round(response.data.wind.speed) + "km/h";
   humidityElement.innerHTML = response.data.temperature.humidity + "%";
-  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class ="weather-conditions-icon"/>`;
+  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class ="weather-conditions-icon"/> `;
   timeElement.innerHTML = formatDate(date);
   getForecast(response.data.city);
 
@@ -71,7 +71,7 @@ function displayForecast(response) {
         forecastHTML +
         `<div><div class="forecast-day">${formatDay(day.time)}</div>
 <div class="forecast-icon">
-<img src="${day.condition.icon_url}"  width="30"/></div>
+<img src="${day.condition.icon_url}" width="30"/></div>
 <div><span class="min-temperature">${Math.round(
           day.temperature.minimum
         )}</span>°<span class="max-temperature"><span><strong>${Math.round(

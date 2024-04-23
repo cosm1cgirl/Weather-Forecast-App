@@ -3,7 +3,7 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
-.weather-app {
+.weather-app-container {
   background: white;
   max-width: 600px;
   margin: 0 auto;
@@ -30,30 +30,25 @@ h1 {
   background-color: #17009777;
   border-radius: 10px;
 }
-.weather-conditions {
+ul {
+  list-style-type: none;
+  padding: 30px;
   display: flex;
   justify-content: space-around;
-  padding: 25px 25px 0px 25px;
 }
-.temperature {
-  margin-top: 45px;
-  font-size: 90px;
-  height: 100px;
-}
-.temperature-unit {
-  margin-top: 45px;
-  font-size: 50px;
-  width: 100px;
-}
-.weather-conditions-icon,
-#icon {
+
+li.icon {
   width: 200px;
   height: 200px;
+}
+.temperature {
+  margin-top: 20px;
+  font-size: 100px;
 }
 .weather-conditions .wind,
 .weather-conditions .humidity {
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .wind-speed,
 #current-humidity {
